@@ -1,0 +1,19 @@
+# System
+.DS_Store
+Thumbs.db
+
+# Edytor
+.vscode/settings.json
+*.swp
+*~
+
+# Python (gdy dojdziemy do FastAPI)
+__pycache__/
+*.pyc
+.env
+venv/
+.venv/
+
+# Sekrety - NIGDY nie wrzucaj do repo
+*.env
+secrets.*
