@@ -19,6 +19,6 @@ venv/
 secrets.*
 
 
-portfolio/TEORIA.md
-portfolio/NOTATKI.md
-portfolio/PROGRESS.md
+frontend/TEORIA.md
+frontend/NOTATKI.md
+frontend/PROGRESS.md
