@@ -58,6 +58,10 @@
 *::before {
     box-sizing: border-box;
 }
+
+html {
+    scroll-behavior: smooth;
+}
 body {
     background-color: var(--color-bg);
     font-family: var(--text-family);
@@ -89,7 +93,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--space-md) var(--space-lg);
+    padding: var(--space-md) var(--space-xl);
 }
 
 nav ul {
@@ -119,4 +123,11 @@ nav ul li a:hover {
 
 .logo:hover {
     color: var(--color-accent);
+}
+
+.section-container {
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
