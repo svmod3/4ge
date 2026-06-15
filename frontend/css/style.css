@@ -132,23 +132,35 @@ nav ul li a:hover {
 }
 
 .section-container {
+    position: relative;
     min-height: 100dvh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+
+#origin-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
 }
 
 #origin-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 1;
     gap: var(--space-lg);
 }
 
 #origin-container .origin-github-tag {
+    display: block;
     text-align: center;
     text-decoration: inherit;
-    display: block;
     font-size: var(--font-size-md);
     color: var(--color-text-secondary);
     transition: var(--transition-base);
@@ -160,7 +172,7 @@ nav ul li a:hover {
 
 #origin-container h1 {
     text-align: center;
-    font-size: var(--font-size-4xl);
+    font-size: var(--font-size-3xl);
 }
 
 #origin-container p {
@@ -169,6 +181,6 @@ nav ul li a:hover {
 
 @media (max-width: 768px) {
     #origin-container h1 {
-        font-size: var(--font-size-3xl);
+        font-size: var(--font-size-2xl);
     }
 }
