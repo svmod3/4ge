@@ -5,7 +5,11 @@ const elementArray = ["build", "break", "secure"];
 let i = 0;
 
 setInterval(() => {
-  originHeader.textContent = elementArray[i];
+  originHeader.classList.add("glitch");
+  setTimeout(() => {
+    originHeader.textContent = elementArray[i];
+    originHeader.classList.remove("glitch");
+  }, 300);
   i = (i + 1) % elementArray.length;
 }, 1550);
 
