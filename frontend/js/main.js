@@ -74,10 +74,29 @@ function animate() {
 }
 
 requestAnimationFrame(animate);
-document.querySelector("form").addEventListener("submit", (e) => {
-  e.preventDefault();
-});
 
-const user = "adam";
-const domain = "gmail.com";
-document.getElementById("contact-email").textContent = user + "@" + domain;
+function form_validator() {
+  const formElement = document.querySelector("form");
+  const nameVal = document.getElementById("name-input");
+  const mailVal = document.getElementById("email-input");
+  const messageVal = document.getElementById("message-input");
+
+  formElement.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (
+      nameVal.value.trim() === "" ||
+      mailVal.value.trim() === "" ||
+      messageVal.value.trim() === ""
+    ) {
+      return;
+    }
+  });
+}
+
+form_validator();
+
+function mail_maker(user, domain) {
+  document.getElementById("contact-email").textContent =
+    user + "@" + domain + ".com";
+}
+mail_maker("adam", "gmail");
