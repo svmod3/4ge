@@ -242,9 +242,85 @@ nav ul li a:hover {
     font-size: var(--font-size-sm);
     border-radius: 2px;
 }
+
+#connect-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1400px;
+    padding: var(--space-lg);
+    gap: var(--space-md);
+}
+
+#connect-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+}
+
+address {
+    display: flex;
+    flex-direction: column;
+    font-style: normal;
+    gap: var(--space-md);
+    border-right: 1px solid rgba(224, 255, 255, 0.08);
+    padding-right: var(--space-xl);
+}
+
+address a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: var(--transition-base);
+}
+
+address a:hover {
+    color: var(--color-accent);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+textarea {
+    min-height: var(--space-2xl);
+}
+
+input,
+textarea {
+    font-family: inherit;
+    background: rgba(224, 255, 255, 0.06);
+    border: 1px solid rgba(224, 255, 255, 0.15);
+    color: var(--color-text-secondary);
+    padding: var(--space-sm);
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+button {
+    font-family: inherit;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    background: transparent;
+    padding: var(--space-md);
+    cursor: pointer;
+    transition: var(--transition-base);
+    align-self: flex-start;
+}
+
+button:hover {
+    background: rgba(224, 255, 255, 0.06);
+}
 @media (max-width: 768px) {
     #origin-container h1 {
         font-size: var(--font-size-2xl);
+    }
+    #connect-grid {
+        grid-template-columns: 1fr;
     }
 }
 
