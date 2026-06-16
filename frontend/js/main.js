@@ -74,3 +74,10 @@ function animate() {
 }
 
 requestAnimationFrame(animate);
+document.querySelector("form").addEventListener("submit", (e) => {
+  e.preventDefault();
+});
+
+const user = "adam";
+const domain = "gmail.com";
+document.getElementById("contact-email").textContent = user + "@" + domain;
