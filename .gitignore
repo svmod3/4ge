@@ -18,7 +18,6 @@ venv/
 *.env
 secrets.*
 
-
-frontend/TEORIA.md
-frontend/NOTATKI.md
-frontend/PROGRESS.md
+TEORIA.md
+NOTATKI.md
+PROGRESS.md
