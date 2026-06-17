@@ -31,9 +31,9 @@
                 <div id="origin-container">
                     <h1 id="origin-main-header" class="origin-header">build</h1>
 
-                    <p id="origin-tag" class="tag">
-                        whatever you do keep calm and stay secure
-                    </p>
+                    <!--<p id="origin-tag" class="tag">
+
+                    </p>-->
 
                     <a
                         class="origin-github-tag"
@@ -48,21 +48,6 @@
                 <div id="work-content">
                     <h2 id="work-header">work</h2>
                     <div id="work-container" class="work-container">
-                        <article class="work-article">
-                            <h3>Cybersec Tools</h3>
-                            <p>Basic cybersecurity tools built in Python.</p>
-                            <div class="work-tags">
-                                <span>Python</span>
-                                <span>JS</span>
-                            </div>
-                            <a
-                                class="work-github-tag"
-                                href="https://github.com/svmod3"
-                                target="_blank"
-                                rel="noreferrer noopener"
-                                ><code>cybersec tools</code></a
-                            >
-                        </article>
                         <article class="work-article">
                             <h3>LSTM Neural Network</h3>
                             <p>
@@ -84,23 +69,35 @@
                             >
                         </article>
                         <article class="work-article">
-                            <h3>Autoenkoder</h3>
-                            <p>
-                                Autoenkoder built in python and keras, it
-                                predicts google actions prices.
-                            </p>
+                            <h3>Soon</h3>
+                            <p></p>
                             <div class="work-tags">
-                                <span>Python</span>
-                                <span>Scikit-learn</span>
-                                <span>Keras</span>
+                                <span></span>
+                                <span></span>
                             </div>
                             <a
                                 class="work-github-tag"
                                 href="https://github.com/svmod3"
                                 target="_blank"
                                 rel="noreferrer noopener"
-                                ><code>autoenkoder</code></a
-                            >
+                                ><code></code
+                            ></a>
+                        </article>
+
+                        <article class="work-article">
+                            <h3>Soon</h3>
+                            <p></p>
+                            <div class="work-tags">
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <a
+                                class="work-github-tag"
+                                href="https://github.com/svmod3"
+                                target="_blank"
+                                rel="noreferrer noopener"
+                                ><code></code
+                            ></a>
                         </article>
                     </div>
                 </div>
@@ -128,11 +125,21 @@
                         <form>
                             <label for="name-input">name</label>
                             <input id="name-input" type="text" />
+                            <span id="name-error" class="form-error"></span>
                             <label for="email-input">email</label>
                             <input id="email-input" type="email" />
+                            <span id="email-error" class="form-error"></span>
                             <label for="message-input">message</label>
-                            <textarea id="message-input"></textarea>
+                            <textarea
+                                id="message-input"
+                                maxlength="500"
+                            ></textarea>
+                            <span id="message-error" class="form-error"></span>
                             <button type="submit">send</button>
+                            <span
+                                id="success-message"
+                                class="form-success"
+                            ></span>
                         </form>
                     </div>
                 </div>
