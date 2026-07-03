@@ -80,6 +80,23 @@ function animate() {
 
 requestAnimationFrame(animate);
 
+//canvas resize
+//
+function resizeCanvas() {
+  // Pobieramy realne wymiary z CSS (np. jeśli canvas ma width: 100vw, height: 100vh)
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  // Jeśli po resecie cząsteczki uciekają poza ekran, można je zresetować lub zaktualizować ich pozycje,
+  // ale standardowo ponowne przypisanie width/height czyści canvas i resetuje jego kontekst.
+}
+
+// Wywołaj raz na starcie
+resizeCanvas();
+
+// I na każdy resize okna
+window.addEventListener("resize", resizeCanvas);
+
 //form validation
 
 function form_validator() {
