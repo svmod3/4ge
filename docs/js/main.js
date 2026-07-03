@@ -142,4 +142,4 @@ function mail_maker(user, domain) {
   document.getElementById("contact-email").textContent =
     user + "@" + domain + ".com";
 }
-mail_maker("adam", "gmail");
+mail_maker("in8sy", "proton");
