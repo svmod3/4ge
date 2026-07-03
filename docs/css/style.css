@@ -352,6 +352,12 @@ button:hover {
     #connect-grid {
         grid-template-columns: 1fr;
     }
+    header {
+        padding: var(--space-md) var(--space-md);
+    }
+    .logo {
+        font-size: var(--font-size-lg);
+    }
 }
 
 @keyframes glitch {
