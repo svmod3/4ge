@@ -183,10 +183,18 @@ nav ul li a:hover {
 
 #origin-main-description {
     text-align: center;
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-lg);
     color: var(--color-text-secondary);
     letter-spacing: 0.15em;
     text-transform: lowercase;
+    margin-bottom: var(--space-md);
+}
+
+#origin-main-description code {
+    display: block;
+    text-align: center;
+    font-size: var(--font-size-md);
+    color: var(--color-text-secondary);
 }
 
 #work-content {
