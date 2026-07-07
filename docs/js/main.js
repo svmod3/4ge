@@ -11,7 +11,7 @@ let i = 0;
 const prefersReducedMotion = window.matchMedia(
   "(prefersReducedMotion)",
 ).matches;
-//main header animation
+
 (function initRotator() {
   const rotator = document.getElementById("origin-rotator");
   if (!rotator || prefersReducedMotion) return;
@@ -29,87 +29,88 @@ const prefersReducedMotion = window.matchMedia(
   }, 1550);
 })();
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+(function initParticles() {
+  const canvas = document.getElementById("origin-canvas");
+  if (!canvas || prefersReducedMotion) return;
 
-//main background animation start
-const PARTICLE_COUNT = 80;
+  const ctx = canvas.getContext("2d");
+  const PARTICLE_COUNT = 80;
+  const LINK_DISTANCE = 120;
+  const particles = [];
+  let animationId = null;
 
-const particles = [];
+  function resizeCanvas() {
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
 
-for (let i = 0; i < PARTICLE_COUNT; i++) {
-  particles.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    vx: Math.random() - 0.5,
-    vy: Math.random() - 0.5,
-  });
-}
-
-function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particles.forEach((p) => {
-    p.x += p.vx;
-    p.y += p.vy;
-
-    if (p.x < 0) {
-      p.x = canvas.width;
-    }
-    if (p.x > canvas.width) {
-      p.x = 0;
-    }
-    if (p.y < 0) {
-      p.y = canvas.height;
-    }
-    if (p.y > canvas.height) {
-      p.y = 0;
-    }
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-    ctx.fillStyle = "#e0ffff";
-    ctx.fill();
-  });
-
-  for (let a = 0; a < particles.length; a++) {
-    for (let b = a + 1; b < particles.length; b++) {
-      const dx = particles[b].x - particles[a].x;
-      const dy = particles[b].y - particles[a].y;
-      const dystans = Math.sqrt(dx * dx + dy * dy);
-      if (dystans > 120) continue;
-      ctx.globalAlpha = 1 - dystans / 120;
-      ctx.beginPath();
-      ctx.moveTo(particles[a].x, particles[a].y);
-      ctx.lineTo(particles[b].x, particles[b].y);
-      ctx.strokeStyle = "#e0ffff";
-      ctx.lineWidth = 0.5;
-      ctx.stroke();
-      ctx.globalAlpha = 1;
+  function createParticles() {
+    particles.length = 0;
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      particles.push({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        vx: Math.random() - 0.5,
+        vy: Math.random() - 0.5,
+      });
     }
   }
 
-  requestAnimationFrame(animate);
-}
+  function animate() {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    ctx.clearRect(0, 0, w, h);
 
-requestAnimationFrame(animate);
+    particles.forEach((p) => {
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0) p.x = w;
+      if (p.x > w) p.x = 0;
+      if (p.y < 0) p.y = h;
+      if (p.y > h) p.y = 0;
 
-//canvas resize
-//
-function resizeCanvas() {
-  // Pobieramy realne wymiary z CSS (np. jeśli canvas ma width: 100vw, height: 100vh)
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+      ctx.fillStyle = "#e0ffff";
+      ctx.fill();
+    });
 
-  // Jeśli po resecie cząsteczki uciekają poza ekran, można je zresetować lub zaktualizować ich pozycje,
-  // ale standardowo ponowne przypisanie width/height czyści canvas i resetuje jego kontekst.
-}
+    for (let a = 0; a < particles.length; a++) {
+      for (let b = a + 1; b < particles.length; b++) {
+        const dx = particles[b].x - particles[a].x;
+        const dy = particles[b].y - particles[a].y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        if (distance > LINK_DISTANCE) continue;
+        ctx.globalAlpha = 1 - distance / LINK_DISTANCE;
+        ctx.beginPath();
+        ctx.moveTo(particles[a].x, particles[a].y);
+        ctx.lineTo(particles[b].x, particles[b].y);
+        ctx.strokeStyle = "#e0ffff";
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+      }
+    }
 
-// Wywołaj raz na starcie
-resizeCanvas();
+    animationId = requestAnimationFrame(animate);
+  }
 
-// I na każdy resize okna
-window.addEventListener("resize", resizeCanvas);
+  const observer = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting && animationId === null) {
+      animationId = requestAnimationFrame(animate);
+    } else if (!entry.isIntersecting && animationId !== null) {
+      cancelAnimationFrame(animationId);
+      animationId = null;
+    }
+  });
+  observer.observe(canvas);
 
-//form validation
+  resizeCanvas();
+  createParticles();
+  window.addEventListener("resize", resizeCanvas);
+})();
 
 function form_validator() {
   const formElement = document.querySelector("form");
