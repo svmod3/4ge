@@ -141,7 +141,14 @@ nav ul li a:hover {
     align-items: center;
     min-height: 100dvh;
 }
-
+.section-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    padding: var(--space-lg);
+    gap: var(--space-lg);
+}
 #origin-canvas {
     position: absolute;
     top: 0;
@@ -404,6 +411,20 @@ button {
 button:hover {
     background: rgba(224, 255, 255, 0.06);
 }
+
+.reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+.reveal.revealed {
+    opacity: 1;
+    transform: none;
+}
+
 @media (max-width: 768px) {
     #origin-container h1 {
         font-size: var(--font-size-2xl);
