@@ -152,15 +152,33 @@ nav ul li a:hover {
 }
 
 #origin-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 1;
     gap: var(--space-lg);
+    padding: var(--space-lg);
+    text-align: center;
+}
+
+.origin-kicker {
+    font-size: var(--font-size-md);
+    color: var(--color-text-secondary);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+}
+
+.origin-rotator {
+    font-family: monospace;
+    font-size: var(--space-lg);
+    color: var(--color-text-secondary);
+    min-height: 1.4rem;
+}
+
+.origin-pitch {
+    max-width: 48ch;
+    color: var(--color-text-secondary);
 }
 
 #origin-container .origin-github-tag {
@@ -176,17 +194,58 @@ nav ul li a:hover {
     color: var(--color-accent);
 }
 
-#origin-container h1 {
-    text-align: center;
-    font-size: var(--font-size-4xl);
+.origin-header {
+    font-size: var(--font-size-xl);
 }
 
 #origin-main-description {
     text-align: center;
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-lg);
     color: var(--color-text-secondary);
     letter-spacing: 0.15em;
     text-transform: lowercase;
+    margin-bottom: var(--space-md);
+}
+
+.origin-links {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+}
+
+.btn {
+    display: inline-block;
+    padding: var(--space-md) var(--space-lg);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    border: 1px solid var(--color-accent);
+    transition: var(--transition-base);
+}
+
+.btn:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.btn-primary {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.btn-primary:hover {
+    background: rgba(224, 255, 255, 0.08);
+}
+
+.scroll-hint {
+    position: absolute;
+    bottom: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: var(--font-size-lg);
+    animation: bob 2s ease-in-out infinite;
+    z-index: 1;
 }
 
 #work-content {

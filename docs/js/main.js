@@ -1,21 +1,33 @@
+"use strict";
+
 const spanNameError = document.getElementById("name-error");
 const spanEmailError = document.getElementById("email-error");
 const spanMessageError = document.getElementById("message-error");
 const originHeader = document.querySelector(".origin-header");
 const canvas = document.getElementById("origin-canvas");
 const ctx = canvas.getContext("2d");
-const elementArray = ["build", "break", "secure", "repeat"];
 let i = 0;
 
+const prefersReducedMotion = window.matchMedia(
+  "(prefersReducedMotion)",
+).matches;
 //main header animation
-setInterval(() => {
-  originHeader.classList.add("glitch");
-  setTimeout(() => {
-    originHeader.textContent = elementArray[i];
-    originHeader.classList.remove("glitch");
-  }, 300);
-  i = (i + 1) % elementArray.length;
-}, 1550);
+(function initRotator() {
+  const rotator = document.getElementById("origin-rotator");
+  if (!rotator || prefersReducedMotion) return;
+
+  const words = ["build", "break", "secure", "repeat"];
+  let wordIndex = 0;
+
+  setInterval(() => {
+    rotator.classList.add("glitch");
+    setTimeout(() => {
+      rotator.textContent = words[wordIndex];
+      rotator.classList.remove("glitch");
+    }, 300);
+    wordIndex = (wordIndex + 1) % words.length;
+  }, 1550);
+})();
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;

@@ -5,13 +5,69 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
             http-equiv="Content-Security-Policy"
-            content="default-src 'self'"
+            content="default-src 'self'; form-action 'self' https://formspree.io; connect-src 'self' https://formspree.io"
         />
-        <title>svmod</title>
-        <meta name="description" content="Portfolio cybersec" />
+        <title>Damian-Ziubiński - IoT · Cybersecurity · ML Engineer</title>
+        <meta
+            name="description"
+            content="Software engineer with 5 years in IT. Production IoT integrations at Samsung SmartThings — Python, FastAPI, Lua Edge Drivers. Postgraduate studies in machine learning and cybersecurity."
+        />
+        <link rel="canonical" href="https://svmod3.github.io/4ge/" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta name="theme-color" content="#111111" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://svmod3.github.io/4ge/" />
+        <meta
+            property="og:title"
+            content="Damian-Ziubiński - IoT · Cybersecurity · ML "
+        />
+        <meta
+            property="og:description"
+            content="Production IoT at Samsung SmartThings. ML applied to network security."
+        />
+
+        <link
+            rel="preload"
+            href="./assets/fonts/manrope-v20-latin-regular.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+        <link
+            rel="preload"
+            href="./assets/fonts/manrope-v20-latin-500.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin
+        />
+
         <link rel="stylesheet" href="./css/style.css" />
         <script src="./js/main.js" defer></script>
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Damian Ziubiński",
+                "alternateName": "svmod",
+                "url": "https://svmod3.github.io/4ge/",
+                "jobTitle": "Software Engineer — IoT, Cybersecurity, ML",
+                "worksFor": { "@type": "Organization", "name": "Samsung" },
+                "sameAs": [
+                    "https://github.com/svmod3",
+                    "https://www.linkedin.com/in/TWOJ-LINKEDIN/"
+                ],
+                "knowsAbout": [
+                    "IoT",
+                    "Cybersecurity",
+                    "Machine Learning",
+                    "Python",
+                    "FastAPI",
+                    "Lua"
+                ]
+            }
+        </script>
     </head>
     <body>
         <header>
@@ -20,6 +76,7 @@
                 <ul id="menu-container" class="menu-container">
                     <li><a href="#origin">origin</a></li>
                     <li><a href="#work">work</a></li>
+                    <li><a href="#skills">skills</a></li>
                     <li><a href="#connect">connect</a></li>
                 </ul>
             </nav>
@@ -27,25 +84,46 @@
 
         <main>
             <section id="origin" class="section-container">
-                <canvas id="origin-canvas"> </canvas>
+                <canvas id="origin-canvas" aria-hidden="true"> </canvas>
                 <div id="origin-container">
-                    <h1 id="origin-main-header" class="origin-header">build</h1>
-
-                    <!--<p id="origin-tag" class="tag">
-
-                    </p>-->
-
-                    <p id="origin-main-description">
-                        <code>ml x cybersecurity</code>
-                    </p>
-                    <a
-                        class="origin-github-tag"
-                        href="https://github.com/svmod3"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        ><code>github</code></a
+                    <p class="origin-kicker">Damian Ziubiński</p>
+                    <h1 class="origin-header">
+                        IoT · Cybersecurity · Machine&nbsp;Learning
+                    </h1>
+                    <p
+                        id="origin-rotator"
+                        class="origin-rotator"
+                        aria-hidden="true"
                     >
+                        build
+                    </p>
+
+                    <p class="origin-pitch">
+                        Software Engineer with 4 years of experience at Samsung
+                        SmartThings, where I delivered production IoT device
+                        integrations using Python, FastAPI, and Lua. Currently
+                        focusing on applying machine learning to network
+                        intrusion detection.
+                    </p>
+
+                    <div class="origin-links">
+                        <a class="btn btn-primary" href="#work">see my work</a>
+                        <a
+                            class="btn"
+                            href="https://github.com/svmod3"
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            >github</a
+                        >
+                    </div>
                 </div>
+                <a
+                    class="scroll-hint"
+                    href="#about"
+                    aria-hidden="true"
+                    tabindex="-1"
+                    >↓</a
+                >
             </section>
             <section id="work" class="section-container">
                 <div id="work-content">
