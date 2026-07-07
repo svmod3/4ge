@@ -12,6 +12,7 @@ const prefersReducedMotion = window.matchMedia(
   "(prefersReducedMotion)",
 ).matches;
 
+//header text glitch animation
 (function initRotator() {
   const rotator = document.getElementById("origin-rotator");
   if (!rotator || prefersReducedMotion) return;
@@ -29,6 +30,7 @@ const prefersReducedMotion = window.matchMedia(
   }, 1550);
 })();
 
+//header network animation
 (function initParticles() {
   const canvas = document.getElementById("origin-canvas");
   if (!canvas || prefersReducedMotion) return;
@@ -112,6 +114,34 @@ const prefersReducedMotion = window.matchMedia(
   window.addEventListener("resize", resizeCanvas);
 })();
 
+//reveal sekcji
+//
+(function initReveal() {
+  const sections = document.querySelectorAll(".section-content");
+
+  if (sections.length === 0) return;
+
+  sections.forEach((s) => s.classList.add("reveal"));
+  if (prefersReducedMotion) {
+    sections.forEach((s) => s.classList.add("revealed"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 },
+  );
+  sections.forEach((s) => observer.observe(s));
+})();
+
+//form validation
 function form_validator() {
   const formElement = document.querySelector("form");
   const nameVal = document.getElementById("name-input");
