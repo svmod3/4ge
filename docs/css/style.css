@@ -36,6 +36,8 @@
     --color-text: #f0f0f0;
     --color-text-secondary: #aaaaaa;
     --color-error: darkred;
+    --color-border: rgba(224, 255, 255, 0.08);
+    --color-border-strong: rgba(224, 255, 255, 0.2);
     --text-family: Manrope, sans-serif;
 
     --font-size-sm: 0.5rem;
@@ -140,6 +142,7 @@ nav ul li a:hover {
     justify-content: center;
     align-items: center;
     min-height: 100dvh;
+    padding: var(--space-xl) 0;
 }
 .section-content {
     display: flex;
@@ -255,14 +258,55 @@ nav ul li a:hover {
     z-index: 1;
 }
 
-#work-content {
+/* ABOUT  */
+.about-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-xl);
+}
+
+.about-text {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    max-width: 1400px;
-    padding: var(--space-lg);
     gap: var(--space-md);
+    max-width: 65ch;
 }
+
+.about-text strong {
+    color: var(--color-accent);
+    font-weight: 500;
+}
+
+.about-aside {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-md);
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-md);
+}
+
+.about-facts {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    border-left: 1px solid var(--color-border);
+    padding-left: var(--space-lg);
+    align-self: start;
+}
+
+.about-facts li {
+    display: flex;
+    flex-direction: column;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-md);
+}
+
+.about-facts strong {
+    color: var(--color-accent);
+    font-weight: 500;
+}
+
+/* WORK */
 
 #work-container {
     display: grid;
@@ -326,15 +370,6 @@ nav ul li a:hover {
     text-align: left;
     display: block;
     width: 100%;
-}
-
-#connect-content {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 1400px;
-    padding: var(--space-lg);
-    gap: var(--space-md);
 }
 
 #connect-grid {
@@ -426,8 +461,8 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-    #origin-container h1 {
-        font-size: var(--font-size-2xl);
+    #origin-header {
+        font-size: var(--font-size-lg);
     }
     #connect-grid {
         grid-template-columns: 1fr;
