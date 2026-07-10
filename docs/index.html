@@ -178,32 +178,90 @@
 
             <section id="work" class="section-container">
                 <div id="work-content" class="section-content">
-                    <h2 id="work-header">work</h2>
+                    <h2><span class="section-prefix">02</span> work</h2>
                     <div id="work-container" class="work-container">
                         <article class="work-article">
-                            <h3>Network Intrusion Detection</h3>
-                            <p>
-                                ML model detecting network attacks using NSL-KDD
-                                dataset. Binary classification with
-                                scikit-learn.
+                            <header class="work-article-header">
+                                <h3>Network Intrusion Detection</h3>
+                                <span class="work-status">in progress</span>
+                            </header>
+                            <p class="work-problem">
+                                Signature-based IDS misses novel attacks. Can a
+                                supervised model classify malicious network
+                                flows without hand-written rules, and how well
+                                does it generalize to unseen zero-day exploits?
                             </p>
+                            <ul class="work-details">
+                                <li>
+                                    Binary classification on the NSL-KDD dataset
+                                    (~148k network flows) evaluating the
+                                    generalization gap.
+                                </li>
+                                <li>
+                                    Built an end-to-end inference pipeline using
+                                    <strong>Random Forest</strong>, securing 97%
+                                    precision on attacks.
+                                </li>
+                                <li>
+                                    Exposed the model as a production-ready,
+                                    high-performance
+                                    <strong>FastAPI web service</strong> for
+                                    real-time traffic analysis.
+                                </li>
+                                <li>
+                                    Current best (Official Test Set):
+                                    <strong>F1 0.76 / Recall 0.63</strong>
+                                    (Proves near-perfect 1.00 F1 on known
+                                    patterns, highlighting the zero-day
+                                    challenge).
+                                </li>
+                                <li>
+                                    Next: Neural Network (MLP) implementation,
+                                    feature scaling refinement, and live packet
+                                    sniffing via Scapy on Raspberry Pi.
+                                </li>
+                            </ul>
                             <div class="work-tags">
                                 <span>Python</span>
                                 <span>scikit-learn</span>
                                 <span>Pandas</span>
+                                <span>FastAPI</span>
+                                <span>MLOps</span>
                                 <span>Security</span>
                             </div>
-
                             <a
+                                class="work-link"
                                 href="https://github.com/svmod3/network-intrusion-detection"
                                 target="_blank"
                                 rel="noreferrer noopener"
+                                aria-label="Network Intrusion Detection — code on GitHub"
+                                ><code
+                                    >github → code &amp; production api</code
+                                ></a
                             >
-                                <code>github</code>
-                            </a>
                         </article>
-                        <article class="work-article">
-                            <h3>Soon</h3>
+                        <article class="work-article work-article--next">
+                            <header class="work-article-header">
+                                <h3>What's next</h3>
+                            </header>
+                            <p class="work-problem">
+                                Ideas queued at the Machine Learning × Network
+                                Security intersection — transitioning to Deep
+                                Learning architectures (MLP), building
+                                continuous live-traffic feature aggregators, and
+                                solving the generalization gap for zero-day
+                                threat detection. Watch the repo for updates.
+                            </p>
+                            <a
+                                class="work-link"
+                                href="https://github.com/svmod3"
+                                target="_blank"
+                                rel="noreferrer noopener"
+                                ><code>github → all repositories</code></a
+                            >
+                        </article>
+                        <!--<article class="work-article">-->
+                        <!--<h3>Soon</h3>
                             <p></p>
                             <div class="work-tags">
                                 <span></span>
@@ -232,13 +290,13 @@
                                 rel="noreferrer noopener"
                                 ><code></code
                             ></a>
-                        </article>
+                        </article>-->
                     </div>
                 </div>
             </section>
             <section id="connect" class="section-container">
                 <div id="connect-content" class="section-content">
-                    <h2>connect</h2>
+                    <h2><span class="section-prefix">03</span> connect</h2>
                     <div id="connect-grid">
                         <address>
                             <span id="contact-email">e-mail</span>
