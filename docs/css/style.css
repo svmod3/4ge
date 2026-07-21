@@ -404,6 +404,50 @@ article {
     color: var(--color-accent);
 }
 
+
+/* skills */
+
+.skills-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fir, minmax(260px, 1fr));
+    gap: var(--space-lg);
+}
+
+
+.skills-group{
+    background: var(--color-bg-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.skills-group h3 {
+    color: var(--color-accent);
+}
+
+.skills-context {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-sm);
+}
+
+.skills-group ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.skills-group ul li::before {
+    content: "— ";
+    color: var(--color-text-secondary);
+}
+
 #connect-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
