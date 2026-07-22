@@ -4,6 +4,7 @@ const spanNameError = document.getElementById("name-error");
 const spanEmailError = document.getElementById("email-error");
 const spanMessageError = document.getElementById("message-error");
 const originHeader = document.querySelector(".origin-header");
+const contactEmail = document.getElementById("contact-email");
 const canvas = document.getElementById("origin-canvas");
 const ctx = canvas.getContext("2d");
 let i = 0;
@@ -142,64 +143,66 @@ const prefersReducedMotion = window.matchMedia(
 })();
 
 //form validation
-function form_validator() {
-  const formElement = document.querySelector("form");
-  const nameVal = document.getElementById("name-input");
-  const mailVal = document.getElementById("email-input");
-  const messageVal = document.getElementById("message-input");
-  const spans = [spanNameError, spanEmailError, spanMessageError];
-  const mailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// function form_validator() {
+//   const formElement = document.querySelector("form");
+//   const nameVal = document.getElementById("name-input");
+//   const mailVal = document.getElementById("email-input");
+//   const messageVal = document.getElementById("message-input");
+//   const spans = [spanNameError, spanEmailError, spanMessageError];
+//   const mailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  formElement.addEventListener("submit", (e) => {
-    e.preventDefault();
-    spans.forEach((span) => {
-      span.textContent = "";
-    });
-    document.getElementById("success-message").textContent = "";
+//   formElement.addEventListener("submit", (e) => {
+//     e.preventDefault();
+//     spans.forEach((span) => {
+//       span.textContent = "";
+//     });
+//     document.getElementById("success-message").textContent = "";
 
-    let isValid = true;
+//     let isValid = true;
 
-    if (nameVal.value.trim() === "") {
-      spanNameError.textContent = "Please enter your name";
-      isValid = false;
-    } else if (nameVal.value.trim().length > 50) {
-      spanNameError.textContent = "Name is too long (max 50 characters)";
-      isValid = false;
-    }
+//     if (nameVal.value.trim() === "") {
+//       spanNameError.textContent = "Please enter your name";
+//       isValid = false;
+//     } else if (nameVal.value.trim().length > 50) {
+//       spanNameError.textContent = "Name is too long (max 50 characters)";
+//       isValid = false;
+//     }
 
-    if (mailVal.value.trim() === "") {
-      spanEmailError.textContent = "Please enter your email address";
-      isValid = false;
-    } else if (mailVal.value.trim().length > 60) {
-      spanEmailError.textContent = "Email is too long (max 60 characters)";
-      isValid = false;
-    } else if (!mailRegex.test(mailVal.value.trim())) {
-      spanEmailError.textContent =
-        "Please enter a valid email (e.g. name@domain.com)";
-      isValid = false;
-    }
+//     if (mailVal.value.trim() === "") {
+//       spanEmailError.textContent = "Please enter your email address";
+//       isValid = false;
+//     } else if (mailVal.value.trim().length > 60) {
+//       spanEmailError.textContent = "Email is too long (max 60 characters)";
+//       isValid = false;
+//     } else if (!mailRegex.test(mailVal.value.trim())) {
+//       spanEmailError.textContent =
+//         "Please enter a valid email (e.g. name@domain.com)";
+//       isValid = false;
+//     }
 
-    if (messageVal.value.trim() === "") {
-      spanMessageError.textContent = "Please write your message";
-      isValid = false;
-    } else if (messageVal.value.trim().length > 500) {
-      spanMessageError.textContent = "Message is too long (max 500 characters)";
-      isValid = false;
-    }
+//     if (messageVal.value.trim() === "") {
+//       spanMessageError.textContent = "Please write your message";
+//       isValid = false;
+//     } else if (messageVal.value.trim().length > 500) {
+//       spanMessageError.textContent = "Message is too long (max 500 characters)";
+//       isValid = false;
+//     }
 
-    if (!isValid) {
-      return;
-    }
+//     if (!isValid) {
+//       return;
+//     }
 
-    formElement.reset();
-    document.getElementById("success-message").textContent = "Message sent!";
-  });
-}
+//     formElement.reset();
+//     document.getElementById("success-message").textContent = "Message sent!";
+//   });
+// }
 
-form_validator();
+// form_validator();
 
 function mail_maker(user, domain) {
-  document.getElementById("contact-email").textContent =
+ contactEmail.textContent =
     user + "@" + domain + ".com";
+
+  console.log('Dziala')
 }
 mail_maker("in8sy", "proton");
